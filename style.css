@@ -1,0 +1,70 @@
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+}
+
+body {
+  margin: 0;
+}
+
+/* Include border and padding in width (important if doing width arithmetic) */
+* { box-sizing: border-box; }
+
+/* Container elements whose width and arrangement varies based on screen width */
+.portrait {
+  height: 200px;
+  float: left;
+  padding: 15px;
+  /* Horizontally and vertically center content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*--------------------------------------------------------------------------*
+   * PORTRAIT (default setting)
+   * - The two elements are stacked on top of each other
+   *--------------------------------------------------------------------------*/
+  width: 100%;
+}
+
+/*--------------------------------------------------------------------------*
+ * LANDSCAPE
+ * - The two elements are next to each other from left to right
+ *--------------------------------------------------------------------------*/
+@media only screen and (orientation: landscape) {
+  .landscape {
+    width: 50%;
+  }
+}
+
+/* The content of each container */
+.content {
+  background-color: black;
+  color: #E9E9E9;
+  padding: 0 10px;
+}
+
+/* Since containers are floating, we need this to take into account their space */
+main::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+main {
+  padding: 20px;
+}
+
+header, footer {
+  height: 80px;
+  background-color: #1D1425;
+  /* Horizontally and vertically align content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header p, footer p {
+  margin: 0;
+  color: #E9E9E9;
+  font-size: 0.65rem;
+}
